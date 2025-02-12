@@ -7,7 +7,7 @@
                 <article>
                     <label for="email"></label>
                     <input 
-                    v-model="user.email"
+                    v-model="email"
                     type="email"
                     id="email"
                     placeholder="Entrer votre email"
@@ -17,7 +17,7 @@
             <section>
                 <article>
                     <label for="password"></label>
-                    <input v-model="user.password" type="password" id="password"
+                    <input v-model="password" type="password" id="password"
                     placeholder="Entrer votre mdp"
                     class="input">
                     
@@ -33,20 +33,34 @@
 </template>
 
 <script lang="ts" setup>
-import {ref, reactive, watch} from 'vue'
-const user= reactive({
-    email:'',
-    password:''
-})
-watch(user, (val) => {
-    // console.log('Changement de la variable data')
-    console.log(isUserInputValid(val.email) ? "Email valide" : "Email invalide");
-    })
+import {ref, watch} from 'vue'
+import inputValidator from '../utils/input-validator';
+    const email= ref('')
+    const password= ref('')
 
-const isUserInputValid = (input: string): boolean => {
-    const pattern = new RegExp("^[a-zA-Z0-9._%+\-]{2,64}[@]{1}[a-zA-Z0-9.\-]{2,64}[.]{1}[a-zA-Z]{2,}$");
-    return pattern.test(input);
-}
+
+// watch(user, (val) => {
+
+//     if(val.email){
+
+//         console.log(val.email, inputValidator(val.email, 'email'));
+//     } else{
+//         console.log(val.password, inputValidator(val.password, 'password'));
+
+//     }
+// })
+
+watch(email, (val) => {
+    console.log(val, inputValidator(val, 'email'))
+})
+watch(password, (val) => {
+    console.log(val, inputValidator(val, 'password'))
+})
+
+// const isUserInputValid = (input: string): boolean => {
+//     const pattern = new RegExp("^[a-zA-Z0-9._%+\-]{2,64}[@]{1}[a-zA-Z0-9.\-]{2,64}[.]{1}[a-zA-Z]{2,}$");
+//     return pattern.test(input);
+// }
 
 
 const submitHandler = () => {
