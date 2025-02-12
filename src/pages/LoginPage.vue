@@ -12,7 +12,6 @@
                     id="email"
                     placeholder="Entrer votre email"
                     class="input">
-                    <p v-if="emailError" class="error">{{ emailError }}</p> 
                 </article>
             </section>
             <section>
