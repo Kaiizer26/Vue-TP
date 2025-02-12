@@ -39,22 +39,18 @@ const user= reactive({
     password:''
 })
 watch(user, (val) => {
-    console.log('Changement de la variable data')
+    // console.log('Changement de la variable data')
+    console.log(isUserInputValid(val.email) ? "Email valide" : "Email invalide");
     })
 
 const isUserInputValid = (input: string): boolean => {
     const pattern = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-   return pattern.test(input);
-
+    return pattern.test(input);
 }
 
 
 const submitHandler = () => {
-    if (isUserInputValid(user.email)) {
-        console.log("Formulaire soumis avec :");
-    } else {
-        console.log("Erreur : email invalide");
-    }
+    
 }
 
 const inputHandler = function(){
