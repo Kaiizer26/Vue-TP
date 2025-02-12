@@ -44,7 +44,7 @@ watch(user, (val) => {
     })
 
 const isUserInputValid = (input: string): boolean => {
-    const pattern = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    const pattern = new RegExp("^[a-zA-Z0-9._%+\-]{2,64}[@]{1}[a-zA-Z0-9.\-]{2,64}[.]{1}[a-zA-Z]{2,}$");
     return pattern.test(input);
 }
 
