@@ -1,39 +1,38 @@
 [
-    {
-      "id": 1,
-      "name": "Cuisinier 1",
-      "bio": "Cuisinier spécialisé en cuisine italienne.",
-      "photo": "mickey.jpg",
-      "plats": [
-        {
-          "id": 1,
-          "name": "Pizza Margherita",
-          "price": 12
-        },
-        {
-          "id": 2,
-          "name": "Pasta Bolognese",
-          "price": 14
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Cuisinier 2",
-      "bio": "Cuisinier spécialisé en cuisine asiatique.",
-      "photo": "larrypg.jpg",
-      "plats": [
-        {
-          "id": 1,
-          "name": "Sushi",
-          "price": 18
-        },
-        {
-          "id": 2,
-          "name": "Ramen",
-          "price": 16
-        }
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Cuisinier 1",
+    "bio": "Cuisinier spécialisé en cuisine italienne.",
+    "photo": "mickey.jpg",
+    "plats": [
+      {
+        "id": 1,
+        "name": "Pizza Margherita",
+        "price": 12
+      },
+      {
+        "id": 2,
+        "name": "Pasta Bolognese",
+        "price": 14
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Cuisinier 2",
+    "bio": "Cuisinier spécialisé en cuisine asiatique.",
+    "photo": "larrypg.jpg",
+    "plats": [
+      {
+        "id": 1,
+        "name": "Sushi",
+        "price": 18
+      },
+      {
+        "id": 2,
+        "name": "Ramen",
+        "price": 16
+      }
+    ]
+  }
+]

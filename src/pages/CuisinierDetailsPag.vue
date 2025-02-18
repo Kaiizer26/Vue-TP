@@ -5,9 +5,15 @@
     </h1>
     
     <section v-if="cuisinier">
+      <!-- Affichage de la photo et de la bio du cuisinier -->
+      <div class="text-center mb-6">
+        <img v-if="cuisinier.photo" :src="`/images/${cuisinier.photo}`" alt="Photo du cuisinier" class="w-48 h-48 mx-auto mb-4">
+        <p class="text-lg text-gray-700">{{ cuisinier.bio }}</p>
+      </div>
+
       <h3 class="text-2xl font-semibold mb-4">Spécialités</h3>
       <ul class="space-y-4">
-        <li v-for="plat in cuisinier.plats" :key="plat.id" class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md">
+        <li v-for="plat in cuisinier.plats" :key="plat.id" class="flex justify-between items-center bg-white p-4 shadow-md">
           <div>
             <p class="font-semibold">{{ plat.name }}</p>
             <p class="text-gray-500">{{ plat.price }}€</p>
@@ -72,12 +78,7 @@ onMounted(async () => {
   }
 })
 
-
-
-
 const addToCart = (plat: Plat) => {
   panierStore.ajouterAuPanier(plat) 
 }
 </script>
-
-
