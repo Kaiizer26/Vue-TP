@@ -3,7 +3,7 @@
       "id": 1,
       "name": "Cuisinier 1",
       "bio": "Cuisinier spécialisé en cuisine italienne.",
-      "photo": "https://www.example.com/photo1.jpg",
+      "photo": "Thumbs_Up.webp",
       "plats": [
         {
           "id": 1,
@@ -21,7 +21,7 @@
       "id": 2,
       "name": "Cuisinier 2",
       "bio": "Cuisinier spécialisé en cuisine asiatique.",
-      "photo": "https://www.example.com/photo2.jpg",
+      "photo": "larrypg.jpg",
       "plats": [
         {
           "id": 1,
