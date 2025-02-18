@@ -1,41 +1,70 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <main class="register_main p-4 bg-gray-50">
+    <h1 class="text-center text-3xl font-semibold mb-8">Inscription</h1>
+    <form @submit.prevent="registerHandler">
+      <FieldComponent
+        v-model="email"
+        id="email"
+        label="Email"
+        type="email"
+        placeholder="Entrer votre email"
+      />
+      <FieldComponent
+        v-model="password"
+        id="password"
+        label="Mot de passe"
+        type="password"
+        placeholder="Entrer votre mot de passe"
+      />
+      <section class="flex justify-between">
+        <ButtonComponent type="submit" variant="primary">
+          S'inscrire
+        </ButtonComponent>
+        <ButtonComponent type="reset" variant="secondary">
+          Réinitialiser
+        </ButtonComponent>
+      </section>
+    </form>
+  </main>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<script setup lang="ts">
+import { ref } from 'vue'
+import inputValidator from '../utils/input-validator'
+import { useRouter } from 'vue-router'
+import FieldComponent from '../components/FieldComponent.vue'
+import ButtonComponent from '../components/ButtonComponent.vue'
+
+const router = useRouter()
+const email = ref('')
+const password = ref('')
+
+const registerHandler = async () => {
+  const result = await fetch('users.json')
+  const users = await result.json()
+
+  const userExists = users.some((user: any) => user.email === email.value)
+  if (userExists) {
+    alert('Cet email est déjà utilisé.')
+    return
+  }
+
+  if (!inputValidator(email.value, 'email')) {
+    alert('Email invalide.')
+    return
+  }
+  if (!inputValidator(password.value, 'password')) {
+    alert('Mot de passe invalide.')
+    return
+  }
+
+  const newUser = {
+    id: users.length,
+    email: email.value,
+    password: password.value
+  }
+  users.push(newUser)
+  console.log(users)
+  router.push('/login')
 }
-</style>
+</script>

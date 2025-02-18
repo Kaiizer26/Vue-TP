@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Cuisinier 1",
+      "bio": "Cuisinier spécialisé en cuisine italienne.",
+      "photo": "https://www.example.com/photo1.jpg",
+      "plats": [
+        {
+          "id": 1,
+          "name": "Pizza Margherita",
+          "price": 12
+        },
+        {
+          "id": 2,
+          "name": "Pasta Bolognese",
+          "price": 14
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cuisinier 2",
+      "bio": "Cuisinier spécialisé en cuisine asiatique.",
+      "photo": "https://www.example.com/photo2.jpg",
+      "plats": [
+        {
+          "id": 1,
+          "name": "Sushi",
+          "price": 18
+        },
+        {
+          "id": 2,
+          "name": "Ramen",
+          "price": 16
+        }
+      ]
+    }
+  ]
+  
