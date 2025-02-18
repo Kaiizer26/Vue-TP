@@ -4,11 +4,13 @@
     <section v-if="panier.length > 0">
       <ul>
         <li v-for="item in panier" :key="item.id">
-          {{ item.name }} - {{ item.price }}€
-          <ButtonComponent @click="removeFromCart(item)">
-            Retirer
-          </ButtonComponent>
-        </li>
+  {{ item.name }} - {{ item.price }}€ (Quantité: {{ item.quantity }})
+  <ButtonComponent @click="removeFromCart(item)">
+    Retirer 1
+  </ButtonComponent>
+</li>
+
+
       </ul>
     </section>
     <div v-else>
